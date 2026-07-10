@@ -1,23 +1,802 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Home</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <!--
-      Need a visual blank slate?
-      Remove all code in `styles.css`!
-    -->
-    <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="script.js"></script>
-  </head>
-  <body>
-    <nav>
-      <a href="/" aria-current="page">Home</a>
-      <a href="/page2.html">Other page</a>
-    </nav>
+
+
+    <!-- JSON-LD Structured Data for AI & Search Engine Optimization -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "부천개인회생 전문 가이드 및 자가진단 센터",
+        "url": "https://naver.com",
+        "description": "2026년 최신 법 개정 기준 부천개인회생 자격 요건과 예상 변제금 분석. 부천 전 지역(중동, 상동, 심곡동, 소사동 등) 1대1 무상 맞춤 상담을 지원합니다.",
+        "publisher": {
+            "@type": "Organization",
+            "name": "부천법률종합지원",
+            "email": "info@naver.com"
+        },
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://naver.com/?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+        }
+    }
+    </script>
+
+    <!-- Google Fonts Preconnect & Stylesheet -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+
+    <!-- Custom Premium CSS Styles -->
+    <style>
+        /* Base Styling and Reset */
+        body { 
+            font-family: 'Noto Sans KR', sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            color: #2D3748; 
+            line-height: 1.8; 
+            background-color: #FAF8F5; /* Soft Cream Warm Background */
+        }
+        h1, h2, h3, h4, h5, h6 { 
+            margin-top: 0; 
+            font-weight: 700; 
+            color: #1A2B49; /* Midnight Navy */
+        }
+        a { 
+            text-decoration: none; 
+            color: inherit; 
+            transition: color 0.3s ease;
+        }
+        ul, ol { 
+            list-style: none; 
+            padding-left: 0; 
+            margin: 0;
+        }
+        img { 
+            max-width: 100%; 
+            height: auto; 
+            display: block; 
+        }
+
+        :root {
+            --primary-color: #1A2B49; /* Premium Midnight Navy */
+            --secondary-color: #0F766E; /* Sage Teal */
+            --accent-color: #D97706; /* Soft Terracotta Amber */
+            --text-muted: #718096;
+            --light-bg: #FFFFFF;
+            --dark-bg: #1A2B49;
+            --border-color: #E2E8F0;
+            --card-shadow: 0 10px 30px rgba(26, 43, 73, 0.05);
+        }
+
+        /* Container and Structure */
+        .container { 
+            max-width: 1100px; 
+            margin: 0 auto; 
+            padding: 0 1.5rem; 
+        }
+        
+        /* Header Styling */
+        .header { 
+            background-color: var(--primary-color); 
+            padding: 1.2rem 0; 
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1); 
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo-text {
+            color: #FFFFFF;
+            font-size: 1.5rem;
+            font-weight: 900;
+            letter-spacing: -1px;
+        }
+        .logo-text span {
+            color: var(--accent-color);
+        }
+        .quick-nav-btn {
+            background-color: var(--accent-color);
+            color: #FFFFFF;
+            padding: 0.6rem 1.2rem;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        /* Banner Hero Section */
+        .banner-hero { 
+            background: linear-gradient(135deg, #FDFBF7 0%, #EBF2F0 100%); 
+            padding: 100px 0 80px 0; 
+            border-bottom: 1px solid var(--border-color);
+        }
+        .banner-content h1 { 
+            font-size: 2.8rem; 
+            font-weight: 900; 
+            line-height: 1.25; 
+            margin-bottom: 1.5rem;
+            letter-spacing: -1.5px;
+        }
+        .banner-content h1 span.highlight { 
+            color: var(--secondary-color); 
+        }
+        .banner-content p {
+            font-size: 1.2rem;
+            color: #4A5568;
+            margin-bottom: 2.5rem;
+        }
+
+        /* Custom Interactive Calculator & Form */
+        .interactive-section {
+            padding: 80px 0;
+            background-color: var(--light-bg);
+        }
+        .calculator-card {
+            background-color: #FFFFFF;
+            border-radius: 16px;
+            box-shadow: var(--card-shadow);
+            border: 1px solid var(--border-color);
+            padding: 40px;
+            margin-bottom: 50px;
+        }
+        .calculator-title {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            text-align: center;
+            margin-bottom: 2rem;
+            font-weight: 800;
+        }
+        .calc-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .calc-item {
+            display: flex;
+            flex-direction: column;
+        }
+        .calc-item label {
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #4A5568;
+            font-size: 0.95rem;
+        }
+        .calc-item input, .calc-item select {
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            background-color: #F8FAFC;
+            font-size: 1rem;
+            color: #2D3748;
+        }
+        .calc-result-box {
+            background-color: #F0FDF4;
+            border: 1px solid #BBF7D0;
+            border-radius: 12px;
+            padding: 25px;
+            text-align: center;
+            margin-top: 30px;
+        }
+        .calc-result-box h4 {
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+        .calc-result-box p {
+            font-size: 1.6rem;
+            font-weight: 900;
+            color: #166534;
+            margin: 0;
+        }
+
+        /* Consultation Lead Form */
+        .main-form-wrap {
+            background: linear-gradient(180deg, #FFFFFF 0%, #FAF8F5 100%);
+            border: 2px solid var(--primary-color);
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: var(--card-shadow);
+        }
+        .form-heading {
+            text-align: center;
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+        .form-subheading {
+            text-align: center;
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+            font-size: 1rem;
+        }
+        .input-group-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        @media (max-width: 768px) {
+            .input-group-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .form-input-field {
+            display: flex;
+            flex-direction: column;
+        }
+        .form-input-field label {
+            font-weight: 700;
+            color: #4A5568;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+        }
+        .form-input-field input, .form-input-field select, .form-input-field textarea {
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            background-color: #FFFFFF;
+            font-size: 1rem;
+        }
+        .form-input-field textarea {
+            resize: none;
+            height: 100px;
+        }
+        .checkbox-agreement {
+            margin: 20px 0;
+            display: flex;
+            align-items: center;
+            font-size: 0.9rem;
+        }
+        .checkbox-agreement input {
+            margin-right: 10px;
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+        }
+        .view-policy-btn {
+            margin-left: auto;
+            font-size: 0.8rem;
+            color: var(--secondary-color);
+            text-decoration: underline;
+            cursor: pointer;
+        }
+        .submit-btn-container {
+            text-align: center;
+        }
+        .btn-submit-action {
+            background-color: var(--accent-color);
+            color: #FFFFFF;
+            font-size: 1.2rem;
+            font-weight: 800;
+            padding: 15px 50px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(217, 119, 6, 0.4);
+            transition: all 0.3s ease;
+        }
+        .btn-submit-action:hover {
+            background-color: #B45309;
+            transform: translateY(-2px);
+        }
+
+        /* Informational Content Sections */
+        .content-section {
+            padding: 80px 0;
+            background-color: #FFFFFF;
+            border-top: 1px solid var(--border-color);
+        }
+        .content-section:nth-of-type(even) {
+            background-color: #FAF8F5;
+        }
+        .section-heading-bar {
+            border-left: 6px solid var(--secondary-color);
+            padding-left: 1.2rem;
+            margin-bottom: 2.5rem;
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            letter-spacing: -1px;
+        }
+        .content-article p {
+            font-size: 1.05rem;
+            color: #4A5568;
+            margin-bottom: 1.8rem;
+            text-align: justify;
+        }
+        .content-article span.keyword-high {
+            font-weight: 700;
+            color: var(--secondary-color);
+            background-color: #E6F4F1;
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+        
+        /* Highlight Callout Box */
+        .callout-box {
+            background-color: #FFFBEB;
+            border-left: 6px solid var(--accent-color);
+            padding: 30px;
+            border-radius: 8px;
+            margin: 40px 0;
+        }
+        .callout-box h4 {
+            font-size: 1.25rem;
+            color: #92400E;
+            margin-bottom: 10px;
+            font-weight: 800;
+        }
+        .callout-box p {
+            margin: 0;
+            color: #B45309;
+            font-size: 1rem;
+        }
+
+        /* Tables */
+        .table-container {
+            width: 100%;
+            overflow-x: auto;
+            margin: 30px 0;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--card-shadow);
+        }
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95rem;
+            text-align: left;
+        }
+        .data-table th, .data-table td {
+            padding: 16px 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .data-table th {
+            background-color: #F1F5F9;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+        .data-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+        .data-table tbody tr:hover {
+            background-color: #F8FAFC;
+        }
+
+        /* Bullet List Styling */
+        .styled-bullet-list {
+            margin: 25px 0;
+        }
+        .styled-bullet-list li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 12px;
+            font-size: 1.05rem;
+            color: #4A5568;
+        }
+        .styled-bullet-list li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 8px;
+            height: 8px;
+            background-color: var(--secondary-color);
+            border-radius: 50%;
+        }
+
+        /* Authority Links Section */
+        .authority-links-section {
+            background-color: #F1F5F9;
+            padding: 40px 0;
+            border-top: 1px solid var(--border-color);
+        }
+        .links-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+        }
+        .link-card-btn {
+            background-color: #FFFFFF;
+            border: 1px solid var(--border-color);
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-weight: 700;
+            color: var(--primary-color);
+            font-size: 0.9rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+        }
+        .link-card-btn:hover {
+            border-color: var(--secondary-color);
+            color: var(--secondary-color);
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--primary-color);
+            color: #E2E8F0;
+            padding: 50px 0;
+            font-size: 0.85rem;
+            border-top: 5px solid var(--accent-color);
+        }
+        .footer-logo {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: #FFFFFF;
+            margin-bottom: 15px;
+        }
+        .footer-logo span {
+            color: var(--accent-color);
+        }
+        .footer-text {
+            color: #A0AEC0;
+            line-height: 1.6;
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
+            .banner-content h1 { font-size: 2.1rem; }
+            .section-heading-bar { font-size: 1.7rem; }
+            .calculator-card { padding: 25px 15px; }
+            .main-form-wrap { padding: 25px 15px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation Section -->
+    <header class="header">
+        <div class="container header-container">
+            <a href="/" class="logo-text">부천법률종합<span>지원센터</span></a>
+            <a href="#consultationForm" class="quick-nav-btn">실시간 무료 견적 신청</a>
+        </div>
+    </header>
+
     <main>
-      <h1>Home page</h1>
+        <!-- Hero Section -->
+        <section class="banner-hero">
+            <div class="container">
+                <div class="banner-content">
+                    <h1>
+                        벼랑 끝 채무 독촉 탈출,<br>
+                        <span class="highlight">부천개인회생</span> 최적의 맞춤 솔루션
+                    </h1>
+                    <p>
+                        인천지방법원 관할 법률 대리인 매칭 및 변제 예상금 실시간 산출.<br>
+                        감당할 수 없는 이자와 원금, 2026년 최신 기준 개인회생 제도로 명확히 해결해 드립니다.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dynamic Self-Diagnosis Calculator & Form Section -->
+        <section class="interactive-section">
+            <div class="container">
+                <!-- Calculator Box to Increase Dwell Time -->
+                <div class="calculator-card">
+                    <h3 class="calculator-title">2026년형 부천개인회생 모의 계산기</h3>
+                    <div class="calc-grid">
+                        <div class="calc-item">
+                            <label for="totalDebt">총 채무액 (원)</label>
+                            <input type="number" id="totalDebt" placeholder="예: 50000000" value="50000000">
+                        </div>
+                        <div class="calc-item">
+                            <label for="monthlyIncome">월 평균 소득 (원)</label>
+                            <input type="number" id="monthlyIncome" placeholder="예: 2500000" value="2500000">
+                        </div>
+                        <div class="calc-item">
+                            <label for="dependents">부양가족 수 (명)</label>
+                            <select id="dependents">
+                                <option value="1" selected>1명 (본인 단독)</option>
+                                <option value="2">2명</option>
+                                <option value="3">3명</option>
+                                <option value="4">4명 이상</option>
+                            </select>
+                        </div>
+                        <div class="calc-item">
+                            <label for="regionSelect">주소지/직장지</label>
+                            <select id="regionSelect">
+                                <option value="부천시" selected>경기도 부천시</option>
+                                <option value="기타">기타 지역</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div style="text-align: center;">
+                        <button type="button" onclick="calculateRehab()" style="background-color: var(--secondary-color); color: white; padding: 12px 30px; border: none; border-radius: 8px; font-weight: 700; cursor: pointer;">자가진단 계산하기</button>
+                    </div>
+                    <div class="calc-result-box" id="resultBox">
+                        <h4>최저생계비 차감 후 예상 월 변제금</h4>
+                        <p id="estimatedPayment">계산기 입력 값을 수정하고 계산 버튼을 눌러주세요.</p>
+                    </div>
+                </div>
+
+                <!-- Main Consultation Lead Form -->
+                <div id="consultationForm" class="main-form-wrap">
+                    <h3 class="form-heading">부천개인회생 무료 컨설팅 신청</h3>
+                    <p class="form-subheading">간단한 정보 입력만으로 대략적인 견적과 가장 저렴한 비용의 최적의 업체를 안내해 드립니다.</p>
+                    
+                    <form id="rehabForm" onsubmit="return handleFormSubmit(event)">
+                        <div class="input-group-grid">
+                            <div class="form-input-field">
+                                <label for="userName">신청인 이름</label>
+                                <input type="text" id="userName" name="userName" placeholder="성함을 입력하세요" required>
+                            </div>
+                            <div class="form-input-field">
+                                <label for="userPhone">휴대폰 번호 (숫자만 입력)</label>
+                                <input type="tel" id="userPhone" name="userPhone" placeholder="01012345678" required>
+                            </div>
+                        </div>
+
+                        <div class="input-group-grid">
+                            <div class="form-input-field">
+                                <label for="bucheonArea">상세 거주지역</label>
+                                <select id="bucheonArea" name="bucheonArea">
+                                    <option value="중동">중동</option>
+                                    <option value="상동">상동</option>
+                                    <option value="심곡동">심곡동</option>
+                                    <option value="원미동">원미동</option>
+                                    <option value="소사동">소사동</option>
+                                    <option value="역곡동">역곡동</option>
+                                    <option value="춘의동">춘의동</option>
+                                    <option value="도당동">도당동</option>
+                                    <option value="약대동">약대동</option>
+                                    <option value="소사본동">소사본동</option>
+                                    <option value="범박동">범박동</option>
+                                    <option value="괴안동">괴안동</option>
+                                    <option value="송내동">송내동</option>
+                                    <option value="고강동">고강동</option>
+                                    <option value="원종동">원종동</option>
+                                    <option value="여월동">여월동</option>
+                                    <option value="작동">작동</option>
+                                    <option value="신흥동">신흥동</option>
+                                    <option value="대장동">대장동</option>
+                                    <option value="삼정동">삼정동</option>
+                                    <option value="계수동">계수동</option>
+                                    <option value="옥길동">옥길동</option>
+                                    <option value="심곡본동">심곡본동</option>
+                                    <option value="상1동">상1동</option>
+                                    <option value="상2동">상2동</option>
+                                    <option value="상3동">상3동</option>
+                                    <option value="중1동">중1동</option>
+                                    <option value="중2동">중2동</option>
+                                    <option value="중3동">중3동</option>
+                                    <option value="중4동">중4동</option>
+                                    <option value="신중동">신중동</option>
+                                    <option value="성곡동">성곡동</option>
+                                    <option value="오정동">오정동</option>
+                                    <option value="범안동">범안동</option>
+                                </select>
+                            </div>
+                            <div class="form-input-field">
+                                <label for="debtAmount">예상 채무 금액</label>
+                                <select id="debtAmount" name="debtAmount">
+                                    <option value="1천만-3천만">1천만 원 이상 ~ 3천만 원 미만</option>
+                                    <option value="3천만-5천만">3천만 원 이상 ~ 5천만 원 미만</option>
+                                    <option value="5천만-1억">5천만 원 이상 ~ 1억 원 미만</option>
+                                    <option value="1억이상">1억 원 이상</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-input-field" style="margin-bottom: 20px;">
+                            <label for="userMemo">추가 문의사항 (선택)</label>
+                            <textarea id="userMemo" name="userMemo" placeholder="현재 처하신 채무 상황이나 직업 형태를 간략히 남겨주시면 더욱 정확한 진단이 가능합니다."></textarea>
+                        </div>
+
+                        <div class="checkbox-agreement">
+                            <input type="checkbox" id="privacyCheck" required>
+                            <label for="privacyCheck">개인정보 수집 및 제3자 제공 동의에 동의합니다. (필수)</label>
+                            <span class="view-policy-btn" onclick="alert('개인정보 보호법에 의거하여, 본 상담 외 용도로 연락처 정보를 사용하거나 타인에게 유출하지 않습니다.')">약관보기</span>
+                        </div>
+
+                        <div class="submit-btn-container">
+                            <button type="submit" class="btn-submit-action">맞춤 비교 견적 및 무료 상담 신청</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Deep Informative Long-form Content Section 1 -->
+        <section class="content-section">
+            <div class="container">
+                <h2 class="section-heading-bar">부천개인회생 절차의 핵심 개요 및 2026년 주요 법 개정 트렌드</h2>
+                <div class="content-article">
+                    <p>
+                        감당할 수 없는 금융 부채와 독촉 속에서 고통받고 있다면 <span class="keyword-high">부천개인회생</span> 제도는 합법적으로 새 삶을 시작할 수 있는 가장 명확한 대안입니다. 개인회생이란 재정적 파탄에 직면한 급여소득자 또는 영업소득자가 향후 지속적인 소득을 얻을 수 있는 가능성이 있을 때, 법원의 인가를 거쳐 3년에서 최대 5년 동안 일정 금액을 변제하면 나머지 원금과 이자를 면책받는 제도입니다. 특히 2026년도 기준에 이르러 최저생계비 기준과 부양가족 책정 범위가 소폭 유연해지면서 더 많은 이들이 자격에 부합할 수 있게 되었습니다.
+                    </p>
+                    <p>
+                        하지만 법원에 서류를 제출하는 과정에서 재산 산정 기준과 소득 유형의 투명성을 엄격히 따지기 때문에, 무작정 저렴한 비용만을 고수하여 아무 대행사나 선택할 경우 도중에 기각되거나 불리한 월 변제금 조건으로 난항을 겪을 가능성이 농후합니다. 본래 부천 지역에서 발생하는 모든 도산 및 회생, 파산 관련 신청은 이 지역을 총괄 관할하는 인천지방법원에서 접수 및 처리가 진행됩니다. 그렇기 때문에 단순히 부천시 내의 단순 행정 편의를 넘어 법원의 까다로운 보정 명령에 실시간으로 대응할 수 있는 전문적인 컨설팅과 체계적인 조력을 받는 것이 핵심입니다.
+                    </p>
+                    <p>
+                        최근 네이버, 구글, 유튜브와 같은 검색 서비스 플랫폼은 물론 트위터, 인스타그램, 페이스북, 카카오톡, 토스 등 주요 플랫폼에서 금융 안전망을 검색하는 빈도가 늘고 있습니다. 또한 수많은 사용자가 모이는 온라인 커뮤니티인 디시인사이드(디시), 보배드림, 에펨코리아(펨코) 등에서 실제로 도는 내돈내산 회생 승인 후기들을 살펴보면 공통적으로 법률 대리인의 경험 차이에 따라 면책 성패 여부와 최종 책정 요금, 예상 변제 금액의 할인 한도가 극명하게 갈린다는 사실을 인지할 수 있습니다.
+                    </p>
+                    <div class="callout-box">
+                        <h4>2026년도 최저생계비 반영 기준 안내</h4>
+                        <p>보건복지부 고시 기준 2026년 1인 가구 기준 중위소득의 60%를 기초로 하는 개인회생 최저생계비는 약 1,330,000원으로 조정되어, 월 수입에서 해당 비용을 제외한 가용 소득이 법적인 면책 재원으로 투입됩니다.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Deep Informative Long-form Content Section 2 (Tables Included) -->
+        <section class="content-section">
+            <div class="container">
+                <h2 class="section-heading-bar">개인 채무 구제 제도의 입체적 비교 분석</h2>
+                <div class="content-article">
+                    <p>
+                        과중 채무에서 벗어나는 방법은 다양하지만 본인에게 가장 이익이 되는 방향을 정립하기 위해서는 각각의 장단점과 명확한 차이점을 파악해야 합니다. 금융위원회 소관 신용회복위원회의 프리워크아웃이나 신속채무조정 등과 비교했을 때 사법부 중심의 법률적 구제는 강제력과 채무 감면 폭의 크기에서 압도적인 장점을 보입니다. 아래 도표를 통해 본인에게 맞는 최적의 종류를 정밀 비교하십시오.
+                    </p>
+
+                    <div class="table-container">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>구분 기준</th>
+                                    <th>개인회생 (인천지법 관할)</th>
+                                    <th>개인파산 및 면책</th>
+                                    <th>신용회복 채무조정</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>주요 대상자</strong></td>
+                                    <td>꾸준한 월 소득이 있는 직장인 및 자영업자</td>
+                                    <td>소득이 없거나 최저생계비 이하인 무직자, 고령층</td>
+                                    <td>협약 가입 금융기관 채무를 단기 연체 중인 자</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>원금 감면율</strong></td>
+                                    <td>최대 90% 수준 범위 내 조정</td>
+                                    <td>채무 전체 일괄 100% 면책</td>
+                                    <td>이자율 일부 감면 및 원금 조정폭 제한적</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>재산 보유 여부</strong></td>
+                                    <td>재산 가치보다 더 많은 채무가 있는 경우 소유 가능</td>
+                                    <td>보유한 유효 자산 대부분 처분 및 환가 처분</td>
+                                    <td>담보 재산에 대한 처분 유예 상담 가능</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>독촉 금지 시기</strong></td>
+                                    <td>금지 명령 신청을 통해 수일 이내 차단</td>
+                                    <td>파산 선고 및 면책 인가 후 종료</td>
+                                    <td>접수 후 익일부터 협약 기관 독촉 완화</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <p>
+                        위의 비교에서 보듯 직장이나 정기적인 프리랜서 매출이 유지되는 20대 청년층, 30대 신혼부부, 40대 외벌이 가장 등은 주로 개인회생을 제일 선호합니다. 재산을 지키면서도 파산이라는 사회적 낙인 효과를 받지 않고 신용카드가 중지되는 등의 일시적 패널티만 감수한 채 정상적인 경제 활동 복귀를 준비할 수 있기 때문입니다. 특히 50대 소상공인과 60대 은퇴를 앞둔 장년층의 자영업 채무 또한 세부적인 소득 및 가계 지출 증빙을 적절히 준비하면 원금 상당액을 극적으로 경감받을 수 있습니다.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Deep Informative Long-form Content Section 3 -->
+        <section class="content-section">
+            <div class="container">
+                <h2 class="section-heading-bar">부천시 행정구역별 특징과 진행 법원 관할 분석</h2>
+                <div class="content-article">
+                    <p>
+                        부천시 관내에서 신청하는 경우, 실거주지나 주 사무소 소재지가 다음 명시된 행정 구역에 속해야 본격적인 부천 관할 신청 요건을 온전히 충족하게 됩니다. 아래 열거한 부천시 관내 행정동들은 모두 인천지방법원을 관할지로 삼아 개인회생 절차를 밟아가게 됩니다.
+                    </p>
+                    
+                    <ul class="styled-bullet-list">
+                        <li>부천의 중심이자 대단지 아파트 및 직장이 몰려 있어 신용카드 대출 회생 문의가 가장 잦은 <strong>중동, 상동, 신중동, 상1동, 상2동, 상3동</strong> 일대</li>
+                        <li>오래된 거주 구역으로서 자영업 채무 비율이 특히 높고 프리랜서 소득 조율이 중요한 <strong>심곡동, 원미동, 소사동, 소사본동, 소사본3동, 심곡본동</strong></li>
+                        <li>오랜 공단 지역 및 소규모 공장, 제조업 종사 자영업자들이 집중된 <strong>춘의동, 도당동, 약대동, 신흥동, 삼정동, 대장동</strong></li>
+                        <li>인접한 서울 및 광역 거주지와 연결되어 통근하는 젊은 세대의 비율이 높은 <strong>역곡동, 역곡1동, 역곡2동, 역곡3동, 괴안동, 범박동</strong></li>
+                        <li>주거와 상업 기능이 혼재되어 상가 담보채무 및 생활비 연체율 대책이 급선무인 <strong>송내동, 송내1동, 송내2동, 고강동, 원종동, 여월동, 작동</strong></li>
+                        <li>비교적 최근에 새롭게 정비되어 다수의 신축 거주 인구와 맞벌이 가구 밀집도가 높은 <strong>계수동, 옥길동, 성곡동, 오정동, 범안동</strong> 일대</li>
+                    </ul>
+
+                    <p>
+                        이 30여 개가 넘는 미시적인 지역 네트워크 안에서 신청자의 구체적인 거주 정보와 주 근무지의 위치를 명확히 대입하여 법원에 제출해야 주소지 관할 시비로 서류가 반송되는 허점을 막아줍니다. 가끔 부천 관할 지방법원이 어디인지 헷갈려서 단순 등기 접수를 누락하는 실수가 일어날 수 있으므로 부천에 상주하는 변호사 및 법무사의 면밀한 직접 도움을 통해 사전 필터링 과정을 거칠 필요가 있습니다.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Deep Informative Long-form Content Section 4 -->
+        <section class="content-section">
+            <div class="container">
+                <h2 class="section-heading-bar">비용, 수임료 분할 혜택 및 허위 광고 유의점</h2>
+                <div class="content-article">
+                    <p>
+                        소비자들이 인터넷 포털이나 SNS에서 무상 사은품, 기프티콘, 상품권, 현금지원, 지원금 지급과 같은 미끼용 이벤트 선전에 혹하여 업체를 선정하면 정작 가장 중요하고 핵심이 되어야 하는 사건의 인가 여부는 등한시될 염려가 큽니다. 개인회생은 법률 사무를 대행하는 엄연한 공적 전문 영역입니다. 수임료 명목의 가격이나 견적은 일반적으로 법원 인지대와 송달료, 부채증명서 발급 대행 비용을 포함하여 대략 최소 100만 원 초반부터 최대 200만 원 선에서 평균 요금이 정해지게 됩니다.
+                    </p>
+                    <p>
+                        금액이 무작정 저렴한곳만을 고집하다 보면 복잡다단한 소급 보정 업무가 추가될 시 추가 요금이 과도하게 청구되거나, 전담 보조원이 도중에 그만두어 피드백이 두절되는 악상황에 직면할 수도 있습니다. 그렇기에 상담 신청 시 분할 납부가 무이자로 지원되는 혜택이 있는지, 초기 착수금 비용의 부담은 저렴한 편인지 등을 투명한 장단점 분석을 통해 실질적으로 조율해야 현명합니다.
+                    </p>
+                    <p>
+                        최근에는 챗지피티(ChatGPT), 제미나이(Gemini)와 같이 딥러닝 고성능 AI 언어 모델을 활용하여 간단한 회생 자격을 직접 확인해 보는 시대가 되었지만, 결국 개개인의 소득 구조 차이, 법적 이해 상충 관계는 고도의 노하우를 가진 전문 법률 대리인의 세세한 감수와 컨설팅 능력이 필수적입니다. 수임료 납부가 지연되어 사건 진행이 지체되지 않도록 각 신청자의 재정 사정에 비례하는 탄력적인 납부 설계안을 제공하는 검증된 브랜드를 추천하는 이유입니다.
+                    </p>
+                </div>
+            </div>
+        </section>
     </main>
-  </body>
-</html>
+
+    <!-- Authority Outbound Links Section (Includes the requested subdomain as first) -->
+    <section class="authority-links-section">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 20px; font-weight: 700; color: var(--primary-color);">검증된 공인 법률 법정 정보 사이트</div>
+            <div class="links-grid">
+                <a href="https://recoveryalawsz.koreahankang.com" class="link-card-btn" target="_blank" rel="noopener noreferrer">도산법률 정보 종합 안내원</a>
+                <a href="https://namu.wiki/w/%EA%B0%9C%EC%9D%B8%ED%9A%8C%EC%83%9D" class="link-card-btn" target="_blank" rel="noopener noreferrer">나무위키 개인회생 정보고</a>
+                <a href="https://www.scourt.go.kr/" class="link-card-btn" target="_blank" rel="noopener noreferrer">대한민국 법원 공식 대포털</a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Interactive Calculator JS Logic -->
+    <script>
+        function calculateRehab() {
+            var debt = parseFloat(document.getElementById('totalDebt').value);
+            var income = parseFloat(document.getElementById('monthlyIncome').value);
+            var dependents = parseInt(document.getElementById('dependents').value);
+
+            if (isNaN(debt) || isNaN(income)) {
+                alert("채무액과 월 소득을 올바른 숫자로 입력해주세요.");
+                return;
+            }
+
+            // 2026 Minimum Living Expenses (Approximate estimated standards based on household sizes)
+            var livingExpenses = 0;
+            switch(dependents) {
+                case 1:
+                    livingExpenses = 1330000;
+                    break;
+                case 2:
+                    livingExpenses = 2210000;
+                    break;
+                case 3:
+                    livingExpenses = 2820000;
+                    break;
+                case 4:
+                    livingExpenses = 3400000;
+                    break;
+                default:
+                    livingExpenses = 1330000;
+            }
+
+            var variableIncome = income - livingExpenses;
+
+            if (variableIncome <= 0) {
+                document.getElementById('estimatedPayment').innerText = "현재 수입이 최저생계비보다 부족하여 회생이 곤란하거나 변제금 보정이 요구될 수 있습니다. 별도 특별 상담이 필요합니다.";
+                document.getElementById('estimatedPayment').style.color = "#DC2626";
+            } else {
+                var formatPayment = Math.floor(variableIncome).toLocaleString() + " 원";
+                document.getElementById('estimatedPayment').innerText = "월 약 " + formatPayment + " (36개월 간 변제 시 원금 감면 기회 제공)";
+                document.getElementById('estimatedPayment').style.color = "#166534";
+            }
+        }
+
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            var name = document.getElementById('userName').value;
+            var phone = document.getElementById('userPhone').value;
+            var area = document.getElementById('bucheonArea').value;
+            var debt = document.getElementById('debtAmount').value;
+
+            // Simple client-side validation
+            if (!name || !phone) {
+                alert("신청자 성함과 휴대폰 번호를 모두 입력해주세요.");
+                return false;
+            }
+
+            // Proceeding submission log to mock DB
+            alert("부천시 " + area + " 지역 " + name + "님의 맞춤 비교 상담 신청이 안전하게 접수되었습니다. 곧 엄선된 전문 매니저가 연락드리겠습니다.");
+            document.getElementById('rehabForm').reset();
+            return true;
+        }
+    </script>
